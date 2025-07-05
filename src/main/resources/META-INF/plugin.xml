@@ -1,0 +1,28 @@
+<idea-plugin>
+
+  <id>dev.karmanov.tg-simple-api-intellij-plugin</id>
+
+  <name>Tg-Simple-Api</name>
+
+  <vendor email="devkarmanov@gmail.com" url="https://github.com/DevKarmanov">Ivan Karmanov</vendor>
+
+  <description><![CDATA[
+     Plugin for convenient work with the <b>tg-simple-api</b> library
+  ]]></description>
+
+  <idea-version since-build="231.0" until-build="233.*"/>
+
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.modules.lang</depends>
+  <depends>org.jetbrains.kotlin</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <lang.inspectionSuppressor
+            language="kotlin"
+            implementationClass="dev.karmanov.tgsimpleapiintellijplugin.tgsuppressor.TgAnnotationSuppressor"/>
+    <lang.inspectionSuppressor
+            language="JAVA"
+            implementationClass="dev.karmanov.tgsimpleapiintellijplugin.tgsuppressor.TgAnnotationSuppressor"/>
+  </extensions>
+
+</idea-plugin>
