@@ -18,11 +18,14 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <lang.inspectionSuppressor
-            language="kotlin"
-            implementationClass="dev.karmanov.tgsimpleapiintellijplugin.tgsuppressor.TgAnnotationSuppressor"/>
-    <lang.inspectionSuppressor
             language="JAVA"
             implementationClass="dev.karmanov.tgsimpleapiintellijplugin.tgsuppressor.TgAnnotationSuppressor"/>
+    <localInspection language="JAVA"
+                     shortName="TgAnnotationSignature"
+                     displayName="Telegram annotation signature checker"
+                     groupName="Custom inspections"
+                     enabledByDefault="true"
+                     implementationClass="dev.karmanov.tgsimpleapiintellijplugin.inspection.TgAnnotationSignatureInspection"/>
   </extensions>
 
 </idea-plugin>

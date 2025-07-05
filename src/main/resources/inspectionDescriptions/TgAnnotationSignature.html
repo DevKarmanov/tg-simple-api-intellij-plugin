@@ -1,0 +1,48 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Telegram Annotation Signature Inspection</title>
+    </head>
+    <body>
+        Validates method parameter types for custom Telegram bot annotations.
+
+        <p>
+            This inspection verifies that methods annotated with Telegram bot annotations such as
+            <code>@BotText</code>, <code>@BotPhoto</code>, <code>@BotCallBack</code>, <code>@BotScheduled</code>, and others
+            have the correct method signature.
+        </p>
+
+        <p>
+            Specifically, it checks that the method parameters match the expected types depending on the annotation:
+        </p>
+
+        <ul>
+            <li><code>@BotText</code>, <code>@BotPhoto</code>, <code>@BotCallBack</code>, <code>@BotDocument</code>,
+                <code>@BotLocation</code>, <code>@BotMedia</code>, <code>@BotVoice</code> — exactly one parameter of type
+                <code>org.telegram.telegrambots.meta.api.objects.Update</code></li>
+            <li><code>@BotScheduled</code> — exactly one parameter of type <code>Set&lt;Long&gt;</code></li>
+        </ul>
+
+        <p>
+            If the method does not conform to these rules, the inspection reports an error with a clear message specifying
+            the expected parameter type.
+        </p>
+
+        <pre>
+            <code>
+                // Correct example:
+                @BotText
+                public void handleUpdate(Update update) { ... }
+
+                // Incorrect example:
+                @BotText
+                public void handleUpdate(String text) { ... } // Error: must have one parameter of type Update
+            </code>
+        </pre>
+
+        <p>
+            This helps prevent runtime errors and enforces consistency in your Telegram bot handler methods.
+         </p>
+
+    </body>
+</html>
