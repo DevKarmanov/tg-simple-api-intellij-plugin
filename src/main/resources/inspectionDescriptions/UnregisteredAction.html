@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unregistered actionName usage</title>
+</head>
+<body>
+Detects usage of unregistered <code>actionName</code> values in <code>addActionData(Set.of(...))</code> calls.
+
+<p>
+    This inspection highlights action names that are not registered in any known handler method annotated with supported Telegram annotations,
+    such as <code>@BotCallBack</code>, <code>@BotText</code>, etc.
+</p>
+
+<p>
+    Use this inspection to avoid silent errors caused by typos or missing handlers, which could lead to incomplete or broken conversation flows in Telegram bots.
+</p>
+
+<pre><code>
+// Example: this will be highlighted if "foo-action" is not registered
+builder().addActionData(Set.of("foo-action", "weather-search"));
+</code></pre>
+
+</body>
+</html>

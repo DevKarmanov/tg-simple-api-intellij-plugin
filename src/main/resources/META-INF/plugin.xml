@@ -10,7 +10,7 @@
      Plugin for convenient work with the <b>tg-simple-api</b> library
   ]]></description>
 
-  <idea-version since-build="231.0" until-build="233.*"/>
+  <idea-version since-build="231.0" until-build="241.*"/>
 
   <depends>com.intellij.modules.platform</depends>
   <depends>com.intellij.modules.lang</depends>
@@ -26,6 +26,17 @@
                      groupName="Custom inspections"
                      enabledByDefault="true"
                      implementationClass="dev.karmanov.tgsimpleapiintellijplugin.inspection.TgAnnotationSignatureInspection"/>
+    <localInspection
+            language="JAVA"
+            shortName="UnregisteredAction"
+            displayName="Unregistered actionName usage"
+            groupName="Telegram bot actions"
+            enabledByDefault="true"
+            level="WARNING"
+            implementationClass="dev.karmanov.tgsimpleapiintellijplugin.inspection.UnregisteredActionInspectionTool"/>
+
+    <psi.referenceContributor language="JAVA" implementation="dev.karmanov.tgsimpleapiintellijplugin.reference.ActionNameReferenceContributor"/>
+
   </extensions>
 
 </idea-plugin>

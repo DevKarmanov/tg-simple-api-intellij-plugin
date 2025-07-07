@@ -11,13 +11,12 @@ repositories {
   mavenCentral()
 }
 
+val ideaVersion = project.findProperty("idea.version")?.toString() ?: "2024.1"
+
 intellij {
-  version.set("2023.3")
-
-  type.set("IC")
-
+  version.set(ideaVersion)
+  type.set("IU")
   plugins.set(listOf("java", "org.jetbrains.kotlin"))
-
   updateSinceUntilBuild.set(false)
 }
 
@@ -36,9 +35,8 @@ tasks {
 
   patchPluginXml {
     sinceBuild.set("231.0")
-    untilBuild.set("233.*")
+    untilBuild.set("241.*")
   }
-
 
   signPlugin {
     certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
