@@ -5,13 +5,13 @@ plugins {
 }
 
 group = "dev.karmanov"
-version = "1.0-SNAPSHOT"
+version = "1.0.2"
 
 repositories {
   mavenCentral()
 }
 
-val ideaVersion = project.findProperty("idea.version")?.toString() ?: "2024.1"
+val ideaVersion = project.findProperty("idea.version")?.toString() ?: "2023.1"
 
 intellij {
   version.set(ideaVersion)
